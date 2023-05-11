@@ -46,7 +46,7 @@ public class Allgood11Test {
       assert(elements.size() > 0);
     }
     driver.findElement(By.cssSelector("*[data-test=\"username\"]")).sendKeys("standard_user");
-    driver.findElement(By.cssSelector("*[data-test=\"password\"]")).sendKeys("secret_sauce");
+    driver.findElement(By.cssSelector("*[data-test=\"password\"]")).sendKeys("standard_user");
     driver.findElement(By.cssSelector("*[data-test=\"login-button\"]")).click();
     {
       List<WebElement> elements = driver.findElements(By.cssSelector(".app_logo"));
