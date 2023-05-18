@@ -6,9 +6,11 @@ import org.junit.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
@@ -48,11 +50,22 @@ public class LoginSteps {
     @Then("He should see {result}")
     public void heShouldSeeResult(String expectedResult) {
         assertEquals(driver.findElement(By.cssSelector("*[data-test=\"error\"]")).getText(), expectedResult);
+        driver.close();
+    }
+    @Then("He should see home page")
+    public void heShouldSeeHomePage() {
+        {
+            List<WebElement> elements = driver.findElements(By.cssSelector(".app_logo"));
+            assert (elements.size() > 0);
+        }
+        driver.close();
+
     }
 
     @After
     public void closeBrowser() {
         driver.quit();
+
     }
     @ParameterType(".*")
     public String username(String username) {

@@ -11,3 +11,9 @@ Feature: Login
       |standard_user|standard_user|Epic sadface: Username and password do not match any user in this service|
       |secret_sauce|secret_sauce|Epic sadface: Username and password do not match any user in this service|
       |||Epic sadface: Username is required|
+
+    Scenario: CorrectLogin
+      Given User is on login page
+      When User puts standard_user and secret_sauce
+      And Clicks login
+      Then He should see home page
